@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.17" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="42r-oK-kb1">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.14"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="bbx-4f-MQz">
+            <objects>
+                <navigationController id="42r-oK-kb1" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="psX-uc-cme">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="QOg-ku-meK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NBq-hS-sR4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-715" y="281"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have been connected to BLE-Chat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jvx-ex-DJn">
+                                <rect key="frame" x="50" y="240.5" width="500" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hb3-v7-jhq">
+                                <rect key="frame" x="270" y="285" width="59" height="30"/>
+                                <state key="normal" title="Connect"/>
+                                <connections>
+                                    <action selector="chatAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Y0s-el-SMl"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="7BL-X3-1vv">
+                                <rect key="frame" x="20" y="336" width="560" height="264"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="264" id="dFJ-iy-Fdo"/>
+                                    <constraint firstAttribute="height" priority="750" constant="264" id="u9f-2S-6EX"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="dFJ-iy-Fdo"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="HlZ-oB-Hge"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="EFX-N2-ZUa"/>
+                                </connections>
+                            </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ivm-sh-709">
+                                <rect key="frame" x="179" y="78" width="240" height="128"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your  name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VyG-rD-vZB">
+                                <rect key="frame" x="50" y="225" width="500" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Hb3-v7-jhq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0Wi-Yg-HYb"/>
+                            <constraint firstItem="VyG-rD-vZB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="Cvz-V0-6Ze"/>
+                            <constraint firstItem="Hb3-v7-jhq" firstAttribute="top" secondItem="jvx-ex-DJn" secondAttribute="bottom" constant="30" id="PAj-3Q-da6"/>
+                            <constraint firstItem="7BL-X3-1vv" firstAttribute="top" secondItem="Hb3-v7-jhq" secondAttribute="bottom" constant="21" id="QLm-9t-cSe"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="7BL-X3-1vv" secondAttribute="bottom" id="RBp-RF-XH1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VyG-rD-vZB" secondAttribute="trailing" constant="30" id="WRP-mN-Mp7"/>
+                            <constraint firstItem="jvx-ex-DJn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="ZFR-Jp-JzC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7BL-X3-1vv" secondAttribute="trailing" id="dKs-e2-8Fb"/>
+                            <constraint firstItem="Hb3-v7-jhq" firstAttribute="top" secondItem="VyG-rD-vZB" secondAttribute="bottom" constant="30" id="lv4-8v-6yf"/>
+                            <constraint firstItem="7BL-X3-1vv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="pBO-ay-Z4l"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jvx-ex-DJn" secondAttribute="trailing" constant="30" id="qeh-2f-3ap"/>
+                            <constraint firstItem="Hb3-v7-jhq" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="wpf-ZZ-CSt"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="RBp-RF-XH1"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="PBP-wO-Fj6"/>
+                    <connections>
+                        <outlet property="availableList" destination="7BL-X3-1vv" id="kOt-NU-rsA"/>
+                        <outlet property="btnConnect" destination="Hb3-v7-jhq" id="rsA-dr-zGi"/>
+                        <outlet property="userNameTextField" destination="VyG-rD-vZB" id="A96-Za-of7"/>
+                        <outlet property="welcomeLabel" destination="jvx-ex-DJn" id="7UT-hP-HBi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4" y="281"/>
+        </scene>
+    </scenes>
+</document>
